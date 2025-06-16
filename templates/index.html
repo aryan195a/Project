@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Status Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Health Status Prediction</h1>
+        <form method="POST">
+            <label for="Age">Age:</label>
+            <input type="number" name="Age" step="any" required><br>
+
+            <label for="ChestPain">Chest Pain:</label>
+            <select name="ChestPain" required>
+                <option value="typical">Typical Angina</option>
+                <option value="atypical">Atypical Angina</option>
+                <option value="non-anginal">Non-anginal Pain</option>
+                <option value="asymptomatic">Asymptomatic</option>
+            </select><br>
+
+            <label for="MaxHR">Max Heart Rate:</label>
+            <input type="number" name="MaxHR" step="any" required><br>
+
+            <label for="Thal">Thal:</label>
+            <select name="Thal" required>
+                <option value="normal">Normal</option>
+                <option value="fixed">Fixed Defect</option>
+                <option value="reversible">Reversible Defect</option>
+            </select><br>
+
+            <label for="Pregnancies">Pregnancies:</label>
+            <input type="number" name="Pregnancies" step="any" required><br>
+
+            <label for="Glucose">Glucose:</label>
+            <input type="number" name="Glucose" step="any" required><br>
+
+            <label for="BloodPressure">Blood Pressure:</label>
+            <input type="number" name="BloodPressure" step="any" required><br>
+
+            <label for="Insulin">Insulin:</label>
+            <input type="number" name="Insulin" step="any" required><br>
+
+            <label for="BMI">BMI:</label>
+            <input type="number" name="BMI" step="any" required><br>
+
+            <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function:</label>
+            <input type="number" name="DiabetesPedigreeFunction" step="any" required><br>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <h3>Prediction Result:</h3>
+            <p><strong>{{ prediction }}</strong></p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
